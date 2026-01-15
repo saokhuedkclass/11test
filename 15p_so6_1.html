@@ -46,7 +46,7 @@
         {
             type: 1,
             text: "Câu 1: hàm số nào không liên tục tại x = 3 là:",
-            options: ["\\( y=\\sqrt{x+2} \\)", "y=sinx", "$y= \\frac{x^2}{x-3}$", "$y=x^2+1$"], // Thứ tự A, B, C, D
+            options: ["\\( y=\\sqrt{x+2} \\)", "y=sinx", "$y= \\dfrac{x^2}{x-3}$", "$y=x^2+1$"], // Thứ tự A, B, C, D
             correct: "C" // Đáp án đúng là C
         },
         {
@@ -65,47 +65,55 @@
         },
         {
             type: 1,
-            text: "Câu 4: Cho hàm số có đồ thị như hình vẽ:",
-            img: "images/cau2.PNG", // Có ảnh thì điền vào đây
-            options: ["2", "1", "3", "0"],
-            correct: "B"
+            text: "Câu 4: cho hàm số y = f(x) có đồ thị như hình vẽ dưới đây",
+            img: "images/cau4.PNG", // Có ảnh thì điền vào đây
+            options: ["hàm số liên tục trên $(-1; +\\infty)$", "hàm số liên tục trên $(-\\infty;2)$", "hàm liên tục trên $(2;+\\infty)$", "hàm liên tục trên $(-\\infty; +\\infty)$"],
+            correct: "C"
         },
+		{
+            type: 1, // trong string thì gấp đôi \ lên so với latex
+            text: "Câu 5: Xét tính liên tục của hàm số $\\begin{cases} \\dfrac{x-1}{\\sqrt{2-x}-1} \\quad  \\text{khi} \\quad x < 1 \\\\ -2x \\quad  \\text{khi} \\quad x \\geq 1 \\end{cases}$",
+            options: [" không liên tục trên R", "không liên tục trên (0;2)", "gián đoạn tại x = 1", "liên tục trên R"],
+            correct: "D"
+        },
+		
         // Muốn thêm câu hỏi? Copy khối trên và dán xuống dưới
 
         // --- PHẦN 2: ĐÚNG SAI ---
         {
             type: 2,
-            text: "Câu 4: Đọc đoạn văn sau và chọn Đúng/Sai...",
-            sub_questions: [
-                "a) Ý thứ nhất của câu hỏi.",
-                "b) Ý thứ hai của câu hỏi.",
-                "c) Ý thứ ba.",
-                "d) Ý thứ tư."
+            text: "Câu 1: Đọc đoạn văn sau và chọn Đúng/Sai: Cho hàm số có đồ thị như hình dưới",
+            img: "images/cau2_1.PNG", // Có ảnh thì điền vào đây
+			sub_questions: [
+                "a) hàm số liên tục tại điểm x = 0.",
+                "b) hàm số không liên tục tại x = 2.",
+                "c) hàm số liên tục tại x = 1.",
+                "d) hàm số không liên tục tại x = 1."
             ],
-            correct: ["true", "false", "true", "true"] // Đáp án cho a, b, c, d
+            correct: ["true", "false", "false", "true"] // Đáp án cho a, b, c, d
         },
         {
             type: 2,
-            text: "Câu 5: Đọc đoạn văn sau và chọn Đúng/Sai...",
+            text: "Câu 2: Đọc đoạn văn sau và chọn Đúng/Sai: cho hàm số $ f(x)= \\begin{cases} -\\dfrac{x}{2} \\quad \\text{khi} \\quad x \\leq 1 \\\\  \\dfrac{x^2-3x+2}{x^2-1} \\quad \\text{khi} \\quad x>1 \\end{cases}$",
             sub_questions: [
-                "a) Ý thứ nhất của câu hỏi.",
-                "b) Ý thứ hai của câu hỏi.",
-                "c) Ý thứ ba.",
-                "d) Ý thứ tư."
+                "a) hàm f(x) liên tục tại x = 1.",
+                "b) hàm g(x) liên tục tại x = 1.",
+                "c) Giới hạn $\\lim_{x \\to  1^+} f(x) = 1/2 $.",
+                "d) hàm số y = f(x) + g(x) liên tục tại x = 1."
             ],
-            correct: ["true", "false", "true", "true"] // Đáp án cho a, b, c, d
+            correct: ["true", "true", "false", "true"] // Đáp án cho a, b, c, d
         },
 
         // --- PHẦN 3: TRẢ LỜI NGẮN ---
         {
             type: 3,
-            text: "Câu 4: Write the past participle of 'go'.",
-            correct: "gone" // Đáp án (máy sẽ tự viết thường, xóa dấu cách thừa)
+            text: "Câu 1: Cho hàm số $y=f(x)= \\begin{cases} \|x^2-3x+2 \| \\quad \\text{khi} \\quad x \\geq 0 \\\\ x + 1 \\quad \\text{khi} \\quad x < 0 \\end{cases}$. Hàm số gián đoạn tại mấy điểm",
+            correct: "1" // Đáp án (máy sẽ tự viết thường, xóa dấu cách thừa)
         },
-        {
+		{
             type: 3,
-            text: "Câu 5: Tính $15 + 20$ bằng bao nhiêu?",
-            correct: "35"
+            text: "Câu 2: Cho hàm số $y=f(x)= \\begin{cases} -t^2 + 4t + 12 \\quad \\text{khi} \\quad 0 \\geq t \\geq 5 \\\\ at - 3 \\quad \\text{khi} \\quad 5 < t \\geq 10 \\end{cases}$. Tìm a để hàm số liên tục tại 5",
+            correct: "2" // Đáp án (máy sẽ tự viết thường, xóa dấu cách thừa)
         }
     ];
 
