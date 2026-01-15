@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thi Trắc Nghiệm Online</title>
+    
+    <link rel="stylesheet" href="css/style1.css">  <!-- gọi lại hàm style trang trí -->    
+    
+    <script> MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } }; </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+<div id="timer">⏱️ <span id="countdown">30:00</span></div>
+
+<div class="container">
+    <h1>📝 ĐỀ THI TỰ ĐỘNG HÓA</h1>
+    
+    <div class="info-box">
+        <input type="text" id="fullname" placeholder="Họ và tên học sinh..." required>
+        <input type="text" id="class_name" placeholder="Lớp..." required>
+    </div>
+
+    <div id="quiz-container"></div>
+
+    <button id="submit-btn" onclick="submitTest()">NỘP BÀI</button>
+    <div id="notification"></div>
+</div>
+
+<script>
+    // Link Google Script của bạn
+    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyg5KT1vKt8j-TkjJEQEOxmfj2IOgLbESw8VMyfWoVygXtYsolpiJbf9-imXl8_AB_-_g/exec';
+    
+    // Thời gian làm bài (phút)
+    const TIME_LIMIT = 30;
+
+    // --- DANH SÁCH CÂU HỎI ---
+    // type 1: Trắc nghiệm (4 chọn 1)
+    // type 2: Đúng Sai
+    // type 3: Trả lời ngắn
+    // img: "link_anh.png" (nếu có, không có thì bỏ trống)
+    
+    const questions = [
+        // --- PHẦN 1: TRẮC NGHIỆM ---
+        {
+            type: 1,
+            text: "Câu 1: Nghiệm của phương trình $log_2(x+1)=3$ là:",
+            options: ["x=7", "x=9", "x=5", "x=8"], // Thứ tự A, B, C, D
+            correct: "A" // Đáp án đúng là A
+        },
+        {
+            type: 1,
+            text: "Câu 2: Cho hàm số có đồ thị như hình vẽ:",
+            img: "images/cau2.PNG", // Có ảnh thì điền vào đây
+            options: ["2", "1", "3", "0"],
+            correct: "B"
+        },
+        {
+            type: 1,
+            text: "Câu 3: Cho hàm số có đồ thị như hình vẽ:",
+            img: "images/cau2.PNG", // Có ảnh thì điền vào đây
+            options: ["2", "1", "3", "0"],
+            correct: "B"
+        },
+        // Muốn thêm câu hỏi? Copy khối trên và dán xuống dưới
+
+        // --- PHẦN 2: ĐÚNG SAI ---
+        {
+            type: 2,
+            text: "Câu 4: Đọc đoạn văn sau và chọn Đúng/Sai...",
+            sub_questions: [
+                "a) Ý thứ nhất của câu hỏi.",
+                "b) Ý thứ hai của câu hỏi.",
+                "c) Ý thứ ba.",
+                "d) Ý thứ tư."
+            ],
+            correct: ["true", "false", "true", "true"] // Đáp án cho a, b, c, d
+        },
+        {
+            type: 2,
+            text: "Câu 5: Đọc đoạn văn sau và chọn Đúng/Sai...",
+            sub_questions: [
+                "a) Ý thứ nhất của câu hỏi.",
+                "b) Ý thứ hai của câu hỏi.",
+                "c) Ý thứ ba.",
+                "d) Ý thứ tư."
+            ],
+            correct: ["true", "false", "true", "true"] // Đáp án cho a, b, c, d
+        },
+
+        // --- PHẦN 3: TRẢ LỜI NGẮN ---
+        {
+            type: 3,
+            text: "Câu 4: Write the past participle of 'go'.",
+            correct: "gone" // Đáp án (máy sẽ tự viết thường, xóa dấu cách thừa)
+        },
+        {
+            type: 3,
+            text: "Câu 5: Tính $15 + 20$ bằng bao nhiêu?",
+            correct: "35"
+        }
+    ];
+
+</script>
+
+<script src="js/script1.js"></script>  <!-- gọi lại hàm script các thứ trang trí -->
+
+</body>
+</html>
